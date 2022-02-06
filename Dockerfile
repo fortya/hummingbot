@@ -103,9 +103,15 @@ COPY --chown=hummingbot:hummingbot scripts/ scripts/
 
 # Install packages required in runtime
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y sudo libusb-1.0 && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y sudo libevent-dev python-dev libusb-1.0 gnupg2 curl tmux screen && \
     rm -rf /var/lib/apt/lists/*
 
+# Install ttyd
+RUN curl -OL https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64; chmod +x ttyd.x86_64 && mv ttyd.x86_64 /usr/bin/ttyd
+
+# Install gcloud CLI
+RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg  add - && apt-get update -y && apt-get install google-cloud-sdk -y
+      
 # Switch to hummingbot user
 USER hummingbot:hummingbot
 WORKDIR /home/hummingbot
