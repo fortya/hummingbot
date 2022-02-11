@@ -124,7 +124,7 @@ COPY --from=builder --chown=hummingbot:hummingbot /home/ /home/
 COPY docker/etc /etc
 
 # Install PostgreSQL database adapter
-RUN pip install psycopg2-binary
+RUN /home/hummingbot/miniconda3/envs/$(head -1 setup/environment-linux.yml | cut -d' ' -f2)/bin/pip install psycopg2-binary
 
 # Setting bash as default shell because we have .bashrc with customized PATH (setting SHELL affects RUN, CMD and ENTRYPOINT, but not manual commands e.g. `docker run image COMMAND`!)
 SHELL [ "/bin/bash", "-lc" ]
