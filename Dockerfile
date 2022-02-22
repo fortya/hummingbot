@@ -103,7 +103,7 @@ COPY --chown=hummingbot:hummingbot scripts/ scripts/
 
 # Install packages required in runtime
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y sudo libusb-1.0 curl tmux gnupg2 && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y sudo libusb-1.0 curl tmux gnupg2 telnet && \
     rm -rf /var/lib/apt/lists/*
 
 # Install ttyd
