@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
 connector_status = {
+    'altmarkets': 'green',
     'ascend_ex': 'yellow',
     'balancer': 'green',
-    'beaxy': 'green',
+    'beaxy': 'yellow',
     'binance': 'green',
     'binance_perpetual': 'yellow',
     'binance_perpetual_testnet': 'yellow',
@@ -17,7 +18,7 @@ connector_status = {
     'celo': 'yellow',
     'coinbase_pro': 'yellow',
     'coinzoom': 'yellow',
-    'crypto_com': 'yellow',
+    'crypto_com': 'green',
     'digifinex': "yellow",
     'dydx_perpetual': 'yellow',
     'ethereum': 'red',
@@ -25,7 +26,7 @@ connector_status = {
     'gate_io': 'yellow',
     'hitbtc': 'green',
     'huobi': 'green',
-    'kraken': 'yellow',
+    'kraken': 'green',
     'kucoin': 'yellow',
     'k2': 'red',
     'liquid': 'yellow',
